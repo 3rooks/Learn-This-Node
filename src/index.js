@@ -1,3 +1,3 @@
-import { printHello } from '#lib/hello';
+import { printHello } from '#lib/hello.js';
 
 printHello();
