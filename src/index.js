@@ -1,3 +1,15 @@
-import { printHello } from '#lib/hello.js';
+import { closeInterface } from '#lib/promptQuestion.js';
+import { bootstrap } from '#lib/bootstrap.js';
 
-printHello();
+const main = async () => {
+    let stopFlag = false;
+
+    while (!stopFlag) {
+        const flag = await bootstrap();
+        stopFlag = flag;
+    }
+
+    closeInterface();
+};
+
+main();

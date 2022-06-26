@@ -1,6 +1,6 @@
 {
-    "name": "learn-this-node",
-    "description": "",
+    "name": "practice-calculator",
+    "description": "First practice - make a calculator",
     "version": "1.0.0",
     "main": "index.js",
     "type": "module",
@@ -9,7 +9,8 @@
         "start": "node src/index.js",
         "lint": "eslint src/**/*.js --fix",
         "prettier": "prettier --write .",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "preinstall": "npm run prepare"
     },
     "keywords": [],
     "author": "",
@@ -27,7 +28,9 @@
         "prettier": "2.7.1"
     },
     "imports": {
-        "#lib/*": "./src/lib/*"
+        "#lib/*": "./src/lib/*",
+        "#constants/*": "./src/constants/*",
+        "#errors/*": "./src/errors/*"
     },
     "lint-staged": {
         "*.js": "eslint --fix",
