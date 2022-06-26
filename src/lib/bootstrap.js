@@ -1,9 +1,7 @@
 import { operations } from '#constants/operations.js';
-import { BINARY_OPERATORS } from '#constants/operators.js';
 import { InvalidInputError } from '#errors/invalidInputError.js';
-import { getBinaryOperatings, getSingleOperating } from '#lib/getOperatings.js';
-import { getOperator } from '#lib/getOperator.js';
 import { prompQuestion } from '#lib/promptQuestion.js';
+import { extractByRegex } from './extractByRegex.js';
 
 export const bootstrap = async () => {
     try {
@@ -11,26 +9,13 @@ export const bootstrap = async () => {
 
         const standarizeInput = userAnswer.trim();
 
-        if (!standarizeInput) throw new InvalidInputError();
+        if (!standarizeInput)
+            throw new InvalidInputError().replaceAll(',', '.');
 
-        if (standarizeInput === 'exit') {
-            return true;
-        }
+        if (standarizeInput === 'exit') return true;
 
-        const operator = getOperator(standarizeInput);
-
-        if (!operator) throw new InvalidInputError();
-
-        const splittedInput = standarizeInput.split(operator);
-
-        let firstOperating, secondOperating;
-
-        if (BINARY_OPERATORS.includes(operator)) {
-            [firstOperating, secondOperating] =
-                getBinaryOperatings(splittedInput);
-        } else {
-            [firstOperating] = getSingleOperating(splittedInput);
-        }
+        const [firstOperating, operator, secondOperating] =
+            extractByRegex(standarizeInput);
 
         const result = operations[operator](firstOperating, secondOperating);
 
