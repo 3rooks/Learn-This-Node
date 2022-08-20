@@ -23,6 +23,10 @@
         "nodemon": "2.0.19",
         "prettier": "2.7.1"
     },
+    "dependencies": {
+        "cli-progress": "3.11.2",
+        "figlet": "1.5.2"
+    },
     "imports": {
         "#lib/*": "./src/lib/*"
     }
