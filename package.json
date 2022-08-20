@@ -11,7 +11,7 @@
         "prettier": "prettier --write ."
     },
     "keywords": [],
-    "author": "",
+    "author": "3rooks",
     "license": "ISC",
     "devDependencies": {
         "eslint": "8.19.0",
@@ -25,9 +25,5 @@
     },
     "imports": {
         "#lib/*": "./src/lib/*"
-    },
-    "lint-staged": {
-        "*.js": "eslint --fix",
-        "*.{js,css,md}": "prettier --write"
     }
 }
