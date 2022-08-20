@@ -1,6 +1,6 @@
 {
-    "name": "learn-this-node",
-    "description": "",
+    "name": "file-compressor",
+    "description": "Second practice - file compressor",
     "version": "1.0.0",
     "main": "index.js",
     "type": "module",
